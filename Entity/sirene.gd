@@ -32,7 +32,12 @@ func _physics_process(delta):
 	else:
 		active = false;
 		$Area2D.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
-	
+
+func touch_land():
+	$"Area2D/CollisionShape2D".shape.radius *= 1.5
+
+func touch_sea():
+	$"Area2D/CollisionShape2D".shape.radius /= 1.5
 
 
 func _on_area_2d_body_entered(body):

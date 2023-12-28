@@ -2,26 +2,27 @@
 
 [ext_resource type="Script" path="res://Entity/sirene.gd" id="1_qs5yi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2bgap"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gav4"]
 radius = 480.051
 
-[node name="Sirene" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2bgap"]
+
+[node name="Sirene" type="CharacterBody2D" groups=["Sirene"]]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_qs5yi")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2bgap")
-
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
 gravity_space_override = 1
 gravity_point = true
 gravity = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_5gav4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2bgap")
+debug_color = Color(0.960784, 0, 0, 0.00392157)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

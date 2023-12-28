@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b04o6wecxkdep"]
+[gd_scene load_steps=8 format=3 uid="uid://b04o6wecxkdep"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fvfiu"]
-[ext_resource type="PackedScene" uid="uid://cu8red310nofu" path="res://Entity/boat.tscn" id="1_snonr"]
 [ext_resource type="PackedScene" uid="uid://dpf610mnh5ty2" path="res://Entity/sirene.tscn" id="2_vp2r1"]
+[ext_resource type="Script" path="res://Spawner_right.gd" id="4_7umgo"]
 [ext_resource type="PackedScene" uid="uid://dkrlroqkmjfhs" path="res://Entity/rocher.tscn" id="4_o0y7j"]
+[ext_resource type="Script" path="res://Spawner_left.gd" id="5_spnki"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
 font_size = 100
@@ -18,10 +19,22 @@ script = ExtResource("1_fvfiu")
 position = Vector2(694, 373)
 
 [node name="Rocher" parent="." instance=ExtResource("4_o0y7j")]
-position = Vector2(538, 326)
+position = Vector2(558, 463)
 
-[node name="Boat" parent="." instance=ExtResource("1_snonr")]
-position = Vector2(158, 161)
+[node name="Rocher2" parent="." instance=ExtResource("4_o0y7j")]
+position = Vector2(969, 63)
+
+[node name="Rocher6" parent="." instance=ExtResource("4_o0y7j")]
+position = Vector2(798, 111)
+
+[node name="Rocher5" parent="." instance=ExtResource("4_o0y7j")]
+position = Vector2(843, 540)
+
+[node name="Rocher3" parent="." instance=ExtResource("4_o0y7j")]
+position = Vector2(919, 460)
+
+[node name="Rocher4" parent="." instance=ExtResource("4_o0y7j")]
+position = Vector2(242, 445)
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
@@ -58,4 +71,18 @@ size_flags_horizontal = 8
 text = "0"
 label_settings = SubResource("LabelSettings_186yo")
 
+[node name="Spawner_right" type="Node2D" parent="."]
+position = Vector2(1153, 234)
+script = ExtResource("4_7umgo")
+
+[node name="SpawnTimer" type="Timer" parent="Spawner_right"]
+
+[node name="Spawner_left" type="Node2D" parent="."]
+position = Vector2(2, 340)
+script = ExtResource("5_spnki")
+
+[node name="SpawnTimer" type="Timer" parent="Spawner_left"]
+
 [connection signal="gameover" from="Sirene" to="." method="_on_sirene_gameover"]
+[connection signal="timeout" from="Spawner_right/SpawnTimer" to="Spawner_right" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner_left/SpawnTimer" to="Spawner_left" method="_on_spawn_timer_timeout"]

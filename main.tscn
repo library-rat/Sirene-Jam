@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b04o6wecxkdep"]
+[gd_scene load_steps=7 format=3 uid="uid://b04o6wecxkdep"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fvfiu"]
 [ext_resource type="PackedScene" uid="uid://cu8red310nofu" path="res://Entity/boat.tscn" id="1_snonr"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
 font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_186yo"]
+font_size = 40
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_fvfiu")
@@ -34,5 +37,25 @@ offset_bottom = 395.0
 text = "RIP
 "
 label_settings = SubResource("LabelSettings_wdm0p")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 648.0
+
+[node name="Score" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_top = 11.0
+offset_right = -15.0
+offset_bottom = 66.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+text = "0"
+label_settings = SubResource("LabelSettings_186yo")
 
 [connection signal="gameover" from="Sirene" to="." method="_on_sirene_gameover"]

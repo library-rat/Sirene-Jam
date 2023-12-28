@@ -14,3 +14,13 @@ func _process(delta):
 
 func _on_body_entered(body): 
 	pass
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("Sirene") :
+		body.touch_land()
+
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("Sirene") :
+		body.touch_sea()

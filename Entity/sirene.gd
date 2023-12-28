@@ -1,13 +1,13 @@
-extends CharacterBody2D
+class_name sirene extends CharacterBody2D
 
 
 const SPEED = 300.0
-var swimming : bool = false;
-
+var active : bool = true;
+signal gameover()
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not swimming :
+	if not active :
 		$"Area2D/CollisionShape2D".set_debug_color(Color(1,0,0))
 	else :
 		$"Area2D/CollisionShape2D".set_debug_color(Color(0,0,1))
@@ -20,13 +20,17 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.y = move_toward(velocity.y,0, SPEED)
-	move_and_slide()
+	var collider  = move_and_collide(velocity*delta)
+	
+	if collider != null :
+		emit_signal("gameover")
+	
 	if (velocity == Vector2.ZERO):
-		swimming = false;
+		active = true;
 		$Area2D.gravity_space_override = Area2D.SPACE_OVERRIDE_COMBINE
 		
 	else:
-		swimming = true;
+		active = false;
 		$Area2D.gravity_space_override = Area2D.SPACE_OVERRIDE_DISABLED
 	
 

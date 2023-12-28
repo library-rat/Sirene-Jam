@@ -1,10 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://b04o6wecxkdep"]
+[gd_scene load_steps=5 format=3 uid="uid://b04o6wecxkdep"]
 
-[ext_resource type="PackedScene" uid="uid://cu8red310nofu" path="res://Characters/boat.tscn" id="1_snonr"]
-[ext_resource type="PackedScene" uid="uid://dpf610mnh5ty2" path="res://Characters/sirene.tscn" id="2_vp2r1"]
+[ext_resource type="Script" path="res://main.gd" id="1_fvfiu"]
+[ext_resource type="PackedScene" uid="uid://cu8red310nofu" path="res://Entity/boat.tscn" id="1_snonr"]
+[ext_resource type="PackedScene" uid="uid://dpf610mnh5ty2" path="res://Entity/sirene.tscn" id="2_vp2r1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
+font_size = 100
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_fvfiu")
 
 [node name="Sirene" parent="." instance=ExtResource("2_vp2r1")]
 
 [node name="Boat" parent="." instance=ExtResource("1_snonr")]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_right = 1165.0
+offset_bottom = 647.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 258.0
+offset_right = 631.0
+offset_bottom = 395.0
+text = "RIP
+"
+label_settings = SubResource("LabelSettings_wdm0p")
+
+[connection signal="gameover" from="Sirene" to="." method="_on_sirene_gameover"]

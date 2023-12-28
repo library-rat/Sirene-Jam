@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b04o6wecxkdep"]
+
+[ext_resource type="PackedScene" uid="uid://cu8red310nofu" path="res://Characters/boat.tscn" id="1_snonr"]
+[ext_resource type="PackedScene" uid="uid://dpf610mnh5ty2" path="res://Characters/sirene.tscn" id="2_vp2r1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sirene" parent="." instance=ExtResource("2_vp2r1")]
+
+[node name="Boat" parent="." instance=ExtResource("1_snonr")]

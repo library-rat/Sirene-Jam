@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgms2"]
 size = Vector2(127.75, 58)
 
-[node name="Boat" type="RigidBody2D"]
+[node name="Boat" type="CharacterBody2D"]
 position = Vector2(58, 254)
 collision_mask = 4
 script = ExtResource("1_ga6e6")

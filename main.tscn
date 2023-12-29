@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b04o6wecxkdep"]
+[gd_scene load_steps=9 format=3 uid="uid://b04o6wecxkdep"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fvfiu"]
 [ext_resource type="PackedScene" uid="uid://dpf610mnh5ty2" path="res://Entity/sirene.tscn" id="2_vp2r1"]
 [ext_resource type="Script" path="res://Spawner_right.gd" id="4_7umgo"]
 [ext_resource type="PackedScene" uid="uid://dkrlroqkmjfhs" path="res://Entity/rocher.tscn" id="4_o0y7j"]
 [ext_resource type="Script" path="res://Spawner_left.gd" id="5_spnki"]
+[ext_resource type="Texture2D" uid="uid://b85aqttd8uxst" path="res://Ressource_folder/Sea.png" id="6_hktrw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
 font_size = 100
@@ -14,6 +15,10 @@ font_size = 40
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_fvfiu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("6_hktrw")
+centered = false
 
 [node name="Sirene" parent="." instance=ExtResource("2_vp2r1")]
 position = Vector2(694, 373)

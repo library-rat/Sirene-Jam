@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkrlroqkmjfhs"]
+[gd_scene load_steps=5 format=3 uid="uid://dkrlroqkmjfhs"]
 
 [ext_resource type="Script" path="res://Entity/rocher.gd" id="1_mtkb6"]
+[ext_resource type="Texture2D" uid="uid://b3n22426iwp6x" path="res://Ressource_folder/Rock.png" id="2_aor0x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2l6x"]
-radius = 39.0
-height = 124.0
+radius = 56.0
+height = 132.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mj2x8"]
-radius = 39.0
-height = 124.0
+radius = 30.0
+height = 86.0
 
 [node name="Rocher" type="StaticBody2D"]
 collision_layer = 4
@@ -19,12 +20,15 @@ script = ExtResource("1_mtkb6")
 shape = SubResource("CapsuleShape2D_o2l6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aor0x")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -4)
 shape = SubResource("CapsuleShape2D_mj2x8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

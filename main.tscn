@@ -20,9 +20,6 @@ script = ExtResource("1_fvfiu")
 texture = ExtResource("6_hktrw")
 centered = false
 
-[node name="Sirene" parent="." instance=ExtResource("2_vp2r1")]
-position = Vector2(694, 373)
-
 [node name="Rocher" parent="." instance=ExtResource("4_o0y7j")]
 position = Vector2(558, 463)
 
@@ -40,6 +37,11 @@ position = Vector2(919, 460)
 
 [node name="Rocher4" parent="." instance=ExtResource("4_o0y7j")]
 position = Vector2(242, 445)
+
+[node name="Sirene" parent="." instance=ExtResource("2_vp2r1")]
+position = Vector2(694, 373)
+
+[node name="SwimmerManager" type="Node2D" parent="."]
 
 [node name="Panel" type="Panel" parent="."]
 visible = false

@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 func add_nageur(nageur,boat_position,size):
-	add_child(nageur)
+	$SwimmerManager.add_child(nageur)
 	nageur.connect("eaten",_on_nageur_eaten)
 	var randomvect = Vector2(random.randf_range(-size.x, size.x),random.randf_range(-size.y, size.y))
 	nageur.position = boat_position + randomvect

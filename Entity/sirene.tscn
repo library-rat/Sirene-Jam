@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpf610mnh5ty2"]
+[gd_scene load_steps=7 format=3 uid="uid://dpf610mnh5ty2"]
 
 [ext_resource type="Script" path="res://Entity/sirene.gd" id="1_qs5yi"]
+[ext_resource type="Texture2D" uid="uid://ca8yq1d0eolk5" path="res://Ressource_folder/Sirene_swimming.png" id="2_g7hnx"]
+[ext_resource type="Texture2D" uid="uid://dx8fupy25ugs5" path="res://Ressource_folder/Song.png" id="3_l241s"]
+[ext_resource type="Texture2D" uid="uid://c71cux5w2q8g4" path="res://Ressource_folder/Sirene_upright.png" id="3_wgr3k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gav4"]
 radius = 100.0
@@ -24,7 +27,24 @@ shape = SubResource("CircleShape2D_5gav4")
 shape = SubResource("CircleShape2D_2bgap")
 debug_color = Color(0.960784, 0, 0, 0.00392157)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D_Sea" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_g7hnx")
+
+[node name="Song" type="Sprite2D" parent="Sprite2D_Sea"]
+visible = false
+position = Vector2(-190, 20)
+texture = ExtResource("3_l241s")
+
+[node name="Sprite2D_Land" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_wgr3k")
+
+[node name="Song" type="Sprite2D" parent="Sprite2D_Land"]
+visible = false
+texture = ExtResource("3_l241s")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

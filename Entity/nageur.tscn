@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://gapv8gb6x788"]
+[gd_scene load_steps=6 format=3 uid="uid://gapv8gb6x788"]
 
 [ext_resource type="Script" path="res://Entity/nageur.gd" id="1_3la6b"]
+[ext_resource type="Texture2D" uid="uid://dig5opmsrsr67" path="res://Ressource_folder/Nageur.png" id="2_lynph"]
+[ext_resource type="Texture2D" uid="uid://bbc5f0ecrbaap" path="res://Ressource_folder/Blood.png" id="3_eke7p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwpoh"]
 
@@ -16,12 +18,23 @@ shape = SubResource("CircleShape2D_cwpoh")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_oxh5f")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_lynph")
+
+[node name="Blood" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_eke7p")
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

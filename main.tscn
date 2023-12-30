@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b04o6wecxkdep"]
+[gd_scene load_steps=13 format=3 uid="uid://b04o6wecxkdep"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fvfiu"]
 [ext_resource type="PackedScene" uid="uid://dpf610mnh5ty2" path="res://Entity/sirene.tscn" id="2_vp2r1"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Spawner_left.gd" id="5_spnki"]
 [ext_resource type="PackedScene" uid="uid://ci27kw00g6o8e" path="res://Entity/hunter_resting_point.tscn" id="6_a2tqw"]
 [ext_resource type="Texture2D" uid="uid://b85aqttd8uxst" path="res://Ressource_folder/Sea.png" id="6_hktrw"]
+[ext_resource type="Script" path="res://Panel.gd" id="9_eikku"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_186yo"]
 font_size = 40
@@ -15,12 +16,18 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
 font_size = 100
 
+[sub_resource type="LabelSettings" id="LabelSettings_8g5w4"]
+font_size = 80
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_fvfiu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("6_hktrw")
 centered = false
+
+[node name="Horror" parent="." instance=ExtResource("5_l2xdt")]
+position = Vector2(496, 330)
 
 [node name="Rocher" parent="." instance=ExtResource("4_o0y7j")]
 position = Vector2(558, 463)
@@ -44,9 +51,6 @@ position = Vector2(242, 445)
 position = Vector2(694, 373)
 
 [node name="SwimmerManager" type="Node2D" parent="."]
-
-[node name="Horror" parent="." instance=ExtResource("5_l2xdt")]
-position = Vector2(496, 330)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -95,17 +99,43 @@ script = ExtResource("5_spnki")
 visible = false
 offset_right = 1165.0
 offset_bottom = 647.0
+script = ExtResource("9_eikku")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 474.0
-offset_top = 258.0
-offset_right = 631.0
-offset_bottom = 395.0
+offset_left = 484.0
+offset_top = 33.0
+offset_right = 641.0
+offset_bottom = 170.0
 text = "RIP
 "
 label_settings = SubResource("LabelSettings_wdm0p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Panel"]
+process_mode = 2
+layout_mode = 0
+offset_left = 370.0
+offset_top = 480.0
+offset_right = 755.0
+offset_bottom = 603.0
+text = "
+"
+
+[node name="Label2" type="Label" parent="Panel/Button"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = -3.0
+offset_right = 359.0
+offset_bottom = 134.0
+text = "RESTART
+"
+label_settings = SubResource("LabelSettings_8g5w4")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="gameover" from="Sirene" to="." method="_on_sirene_gameover"]
 [connection signal="timeout" from="Spawner_right/SpawnTimer" to="Spawner_right" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner_left/SpawnTimer" to="Spawner_left" method="_on_spawn_timer_timeout"]
+[connection signal="button_down" from="Panel/Button" to="Panel" method="_on_button_button_down"]

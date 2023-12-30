@@ -34,3 +34,17 @@ func _on_blood_desappear(pos):
 func _on_sirene_gameover():
 	get_tree().paused = true
 	$Panel.visible = true
+
+func resetgame():
+	var array = get_tree().get_nodes_in_group("Boat")
+	for i in range(0,array.size()) :
+		array[i].queue_free()
+	var array2 = get_tree().get_nodes_in_group("Nageur")
+	for i in range(0,array2.size()) :
+		array2[i].queue_free()
+	$Horror.position = Vector2(496,200)
+	$Horror.set_state("Resting")
+	$Sirene.position = Vector2(694,373)
+	score = 0 
+	$Control/Score.text = "%d" % score
+

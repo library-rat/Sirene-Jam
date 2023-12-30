@@ -8,7 +8,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oxh5f"]
 
-[node name="Nageur" type="RigidBody2D"]
+[node name="Nageur" type="RigidBody2D" groups=["Nageur"]]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_3la6b")

@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgms2"]
 size = Vector2(127.75, 58)
 
-[node name="Boat" type="CharacterBody2D"]
+[node name="Boat" type="CharacterBody2D" groups=["Boat"]]
 position = Vector2(58, 254)
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_ga6e6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

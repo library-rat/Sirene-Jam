@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ci27kw00g6o8e"]
+
+[node name="HunterRestingPoint" type="Node2D" groups=["RestingPoint"]]

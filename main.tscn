@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b04o6wecxkdep"]
+[gd_scene load_steps=11 format=3 uid="uid://b04o6wecxkdep"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fvfiu"]
 [ext_resource type="PackedScene" uid="uid://dpf610mnh5ty2" path="res://Entity/sirene.tscn" id="2_vp2r1"]
 [ext_resource type="Script" path="res://Spawner_right.gd" id="4_7umgo"]
 [ext_resource type="PackedScene" uid="uid://dkrlroqkmjfhs" path="res://Entity/rocher.tscn" id="4_o0y7j"]
+[ext_resource type="PackedScene" uid="uid://wttr8ledjmh8" path="res://Entity/horror.tscn" id="5_l2xdt"]
 [ext_resource type="Script" path="res://Spawner_left.gd" id="5_spnki"]
+[ext_resource type="PackedScene" uid="uid://ci27kw00g6o8e" path="res://Entity/hunter_resting_point.tscn" id="6_a2tqw"]
 [ext_resource type="Texture2D" uid="uid://b85aqttd8uxst" path="res://Ressource_folder/Sea.png" id="6_hktrw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
@@ -43,6 +45,9 @@ position = Vector2(694, 373)
 
 [node name="SwimmerManager" type="Node2D" parent="."]
 
+[node name="Horror" parent="." instance=ExtResource("5_l2xdt")]
+position = Vector2(496, 330)
+
 [node name="Panel" type="Panel" parent="."]
 visible = false
 offset_right = 1165.0
@@ -78,14 +83,25 @@ size_flags_horizontal = 8
 text = "0"
 label_settings = SubResource("LabelSettings_186yo")
 
+[node name="RestingPointManager" type="Node2D" parent="."]
+
+[node name="HunterRestingPoint" parent="RestingPointManager" instance=ExtResource("6_a2tqw")]
+position = Vector2(330, 98)
+
+[node name="HunterRestingPoint2" parent="RestingPointManager" instance=ExtResource("6_a2tqw")]
+position = Vector2(659, 596)
+
+[node name="HunterRestingPoint3" parent="RestingPointManager" instance=ExtResource("6_a2tqw")]
+position = Vector2(201, 590)
+
 [node name="Spawner_right" type="Node2D" parent="."]
-position = Vector2(1153, 234)
+position = Vector2(1240, 234)
 script = ExtResource("4_7umgo")
 
 [node name="SpawnTimer" type="Timer" parent="Spawner_right"]
 
 [node name="Spawner_left" type="Node2D" parent="."]
-position = Vector2(2, 340)
+position = Vector2(-103, 340)
 script = ExtResource("5_spnki")
 
 [node name="SpawnTimer" type="Timer" parent="Spawner_left"]

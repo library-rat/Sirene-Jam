@@ -25,6 +25,7 @@ window/stretch/mode="viewport"
 2d_physics/layer_2="Sirenes"
 2d_physics/layer_3="Rochers"
 2d_physics/layer_4="Nageurs"
+2d_physics/layer_5="Horror"
 
 [physics]
 

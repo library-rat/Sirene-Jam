@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsndvenuxby0d"]
+
+[ext_resource type="Script" path="res://Entity/HorrorStates/RestingState.gd" id="1_cqxnp"]
+
+[node name="RestingState" type="Node"]
+script = ExtResource("1_cqxnp")
+
+[node name="RestTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RestTimer" to="." method="_on_rest_timer_timeout"]

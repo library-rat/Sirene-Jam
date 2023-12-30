@@ -27,7 +27,7 @@ func _physics_process(delta):
 	
 	var collider  = move_and_collide(velocity*delta)
 	
-	if collider != null :
+	if collider != null and not onland:
 		emit_signal("gameover")
 		
 	
@@ -63,9 +63,11 @@ func touch_sea():
 
 func _on_area_2d_body_entered(body):
 	if body != self :
-		body.set_target(self)
+		if body.is_in_group("Boat"):
+			body.set_target(self)
 
 
 
 func _on_area_2d_body_exited(body):
-	body.set_target(null)
+	if body.is_in_group("Boat"):
+		body.set_target(null)

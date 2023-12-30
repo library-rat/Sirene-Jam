@@ -6,8 +6,10 @@ var resting_time = 10
 var random : RandomNumberGenerator
 var waiting = false
 # Called when the node enters the scene tree for the first time.
-func onSetState():
+func _ready():
 	random = RandomNumberGenerator.new()
+
+func onSetState():
 	actual_resting_point = hunter.resting_points[random.randi_range(0, hunter.resting_points.size()-1)]
 
 

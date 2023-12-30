@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://ci27kw00g6o8e" path="res://Entity/hunter_resting_point.tscn" id="6_a2tqw"]
 [ext_resource type="Texture2D" uid="uid://b85aqttd8uxst" path="res://Ressource_folder/Sea.png" id="6_hktrw"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
-font_size = 100
-
 [sub_resource type="LabelSettings" id="LabelSettings_186yo"]
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_wdm0p"]
+font_size = 100
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_fvfiu")
@@ -47,21 +47,6 @@ position = Vector2(694, 373)
 
 [node name="Horror" parent="." instance=ExtResource("5_l2xdt")]
 position = Vector2(496, 330)
-
-[node name="Panel" type="Panel" parent="."]
-visible = false
-offset_right = 1165.0
-offset_bottom = 647.0
-
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 474.0
-offset_top = 258.0
-offset_right = 631.0
-offset_bottom = 395.0
-text = "RIP
-"
-label_settings = SubResource("LabelSettings_wdm0p")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -105,6 +90,21 @@ position = Vector2(-103, 340)
 script = ExtResource("5_spnki")
 
 [node name="SpawnTimer" type="Timer" parent="Spawner_left"]
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_right = 1165.0
+offset_bottom = 647.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 258.0
+offset_right = 631.0
+offset_bottom = 395.0
+text = "RIP
+"
+label_settings = SubResource("LabelSettings_wdm0p")
 
 [connection signal="gameover" from="Sirene" to="." method="_on_sirene_gameover"]
 [connection signal="timeout" from="Spawner_right/SpawnTimer" to="Spawner_right" method="_on_spawn_timer_timeout"]

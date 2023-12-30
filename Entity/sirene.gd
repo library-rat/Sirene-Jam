@@ -6,6 +6,9 @@ var active : bool = true;
 var onland : bool = false;
 signal gameover()
 
+@onready var active_area = preload("res://Ressource_folder/Song_area_active.png")
+@onready var inactive_area = preload("res://Ressource_folder/Song_area_inactive.png")
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not active :
@@ -33,6 +36,7 @@ func _physics_process(delta):
 	
 	if (velocity == Vector2.ZERO):
 		active = true;
+		$Area.texture = active_area
 		if(onland):
 			$Sprite2D_Land/Song.visible = true
 		else :
@@ -41,6 +45,7 @@ func _physics_process(delta):
 		
 	else:
 		active = false;
+		$Area.texture = inactive_area
 		if(onland):
 			$Sprite2D_Land/Song.visible = false
 		else :
@@ -51,12 +56,14 @@ func _physics_process(delta):
 func touch_land():
 	onland = true
 	$"Area2D/CollisionShape2D".shape.radius *= 1.5
+	$Area.scale *= 1.5
 	$"Sprite2D_Land".visible = true
 	$"Sprite2D_Sea".visible = false
 
 func touch_sea():
 	onland = false
 	$"Area2D/CollisionShape2D".shape.radius /= 1.5
+	$Area.scale /= 1.5
 	$"Sprite2D_Land".visible = false
 	$"Sprite2D_Sea".visible = true
 

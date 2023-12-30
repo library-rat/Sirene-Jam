@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wttr8ledjmh8"]
+[gd_scene load_steps=7 format=3 uid="uid://wttr8ledjmh8"]
 
 [ext_resource type="Script" path="res://Entity/horror.gd" id="1_asrk4"]
 [ext_resource type="PackedScene" uid="uid://dsndvenuxby0d" path="res://Entity/HorrorStates/RestingState.tscn" id="2_ohtgy"]
 [ext_resource type="PackedScene" uid="uid://c880176rofeg4" path="res://Entity/HorrorStates/HuntingState.tscn" id="3_b8oax"]
+[ext_resource type="PackedScene" uid="uid://w2cthiv5st18" path="res://Entity/HorrorStates/SearchingState.tscn" id="4_ea58w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrt11"]
 radius = 61.0
@@ -24,6 +25,8 @@ shape = SubResource("CapsuleShape2D_xrt11")
 [node name="RestingState" parent="." instance=ExtResource("2_ohtgy")]
 
 [node name="HuntingState" parent="." instance=ExtResource("3_b8oax")]
+
+[node name="SearchingState" parent="." instance=ExtResource("4_ea58w")]
 
 [node name="Prey_detect" type="Area2D" parent="."]
 collision_layer = 0

@@ -27,6 +27,7 @@ func state_process(delta):
 		actual_target = hunter.attention_points[random.randi_range(0, hunter.attention_points.size()-1)]
 	else :
 		hunter.velocity = direction*searching_speed
+		hunter.rotation = direction.angle()
 
 
 func _on_timer_timeout():

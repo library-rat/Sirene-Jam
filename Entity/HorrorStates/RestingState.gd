@@ -19,6 +19,7 @@ func state_process(delta):
 	var distance = hunter.position.distance_to(actual_resting_point.position)
 	if distance > 10 :
 		hunter.velocity = direction *resting_speed 
+		hunter.rotation = direction.angle()
 	else :
 		if not waiting :
 			print("wait")

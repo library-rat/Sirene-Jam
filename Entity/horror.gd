@@ -9,6 +9,11 @@ var hunting_radius = 175
 @onready var resting_state = $"RestingState"
 @onready var hunting_state = $"HuntingState"
 @onready var searching_state = $SearchingState
+
+@onready var resting_img = preload("res://Ressource_folder/Horror_resting.png")
+@onready var searching_img = preload("res://Ressource_folder/Horror_searching.png")
+@onready var hunting_img = preload("res://Ressource_folder/Horror_Hunting.png")
+
 func _ready():
 	$Prey_detect/CollisionShape2D.shape.radius = hunting_radius
 	resting_points = get_tree().get_nodes_in_group("RestingPoint")
@@ -21,13 +26,16 @@ func _ready():
 func set_state(str :String):
 	match str :
 		"Hunting" :
+			$Sprite2D.texture = hunting_img
 			if current_state == resting_state :
 				resting_state.waiting = false
 			current_state = hunting_state
 		"Resting" :
+			$Sprite2D.texture = resting_img
 			current_state = resting_state
 		
 		"Searching":
+			$Sprite2D.texture = searching_img
 			searching_state.onSetState()
 			current_state = searching_state
 			

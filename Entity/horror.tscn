@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://wttr8ledjmh8"]
+[gd_scene load_steps=8 format=3 uid="uid://wttr8ledjmh8"]
 
 [ext_resource type="Script" path="res://Entity/horror.gd" id="1_asrk4"]
 [ext_resource type="PackedScene" uid="uid://dsndvenuxby0d" path="res://Entity/HorrorStates/RestingState.tscn" id="2_ohtgy"]
+[ext_resource type="Texture2D" uid="uid://b2d0fe4iitbdm" path="res://Ressource_folder/Horror_resting.png" id="2_pxbjb"]
 [ext_resource type="PackedScene" uid="uid://c880176rofeg4" path="res://Entity/HorrorStates/HuntingState.tscn" id="3_b8oax"]
 [ext_resource type="PackedScene" uid="uid://w2cthiv5st18" path="res://Entity/HorrorStates/SearchingState.tscn" id="4_ea58w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrt11"]
-radius = 61.0
-height = 160.0
+radius = 69.0
+height = 140.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xx13r"]
 radius = 175.0
@@ -21,6 +22,9 @@ script = ExtResource("1_asrk4")
 shape = SubResource("CapsuleShape2D_xrt11")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.58793
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_pxbjb")
 
 [node name="RestingState" parent="." instance=ExtResource("2_ohtgy")]
 

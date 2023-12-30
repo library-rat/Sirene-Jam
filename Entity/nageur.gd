@@ -2,6 +2,7 @@ extends RigidBody2D
 var dead : bool = false
 signal eaten()
 signal blood(pos : Vector2) 
+signal blood_dissipated(pos : Vector2)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -13,6 +14,8 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
+	if dead :
+		return
 	if body.is_in_group("Sirene") and !dead:
 		emit_signal("eaten") 
 	dead = true
@@ -27,4 +30,5 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_timer_timeout():
+	emit_signal("blood_dissipated", position)
 	queue_free()

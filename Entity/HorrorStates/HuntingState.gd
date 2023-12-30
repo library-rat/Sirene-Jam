@@ -1,6 +1,6 @@
 extends State
 
-var hunt_speed = 210
+var hunt_speed = 200
 
 func onSetState():
 	$"..".set_Sprite("Hunting")

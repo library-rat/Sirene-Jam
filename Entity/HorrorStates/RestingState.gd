@@ -2,7 +2,7 @@ extends State
 
 var actual_resting_point : Node2D
 var resting_speed = 100
-var resting_time = 20 
+var resting_time = 10 
 var random : RandomNumberGenerator
 var waiting = false
 # Called when the node enters the scene tree for the first time.

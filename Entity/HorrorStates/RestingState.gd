@@ -22,8 +22,9 @@ func state_process(delta):
 			print("wait")
 			waiting = true
 			$"RestTimer".start(resting_time)
-	if not waiting :
-		hunter.move_and_slide()
+	if waiting :
+		hunter.velocity = Vector2.ZERO
+		
 	
 
 

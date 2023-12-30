@@ -1,7 +1,7 @@
 class_name sirene extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 200.0
 var active : bool = true;
 var onland : bool = false;
 signal gameover()
@@ -71,3 +71,5 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("Boat"):
 		body.set_target(null)
+func game_over():
+	emit_signal("gameover")

@@ -14,13 +14,22 @@ func _process(delta):
 func add_nageur(nageur,boat_position,size):
 	$SwimmerManager.add_child(nageur)
 	nageur.connect("eaten",_on_nageur_eaten)
+	nageur.connect("blood",_on_blood_appear)
+	nageur.connect("blood_dissipated",_on_blood_desappear)
+	
 	var randomvect = Vector2(random.randf_range(-size.x, size.x),random.randf_range(-size.y, size.y))
 	nageur.position = boat_position + randomvect
 	
 func _on_nageur_eaten():
 	score += 1
 	$Control/Score.text = "%d" % score
+
+func _on_blood_appear(pos):
 	
+	$"Horror".add_attention_point(pos)
+
+func _on_blood_desappear(pos):
+	$"Horror".remove_attention_point(pos)
 
 func _on_sirene_gameover():
 	get_tree().paused = true
